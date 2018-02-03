@@ -10,22 +10,22 @@ class NeuralNetwork():
 		random.seed(1)
 
 		# We model a perceptron, with 3 input connections and 1 output connection.
-        # We assign random weights to a 3 x 1 matrix, with values in the range -1 to 1 and mean 0.
+                # We assign random weights to a 3 x 1 matrix, with values in the range -1 to 1 and mean 0.
 		self.syn_weights = 2 * random.random((3,1)) - 1
 
 	# The Sigmoid function, We pass the weighted sum of the inputs through this function to
-    # normalise them between 0 and 1.
+        # normalise them between 0 and 1.
 	def sigmoidFn(self, x):
 		return 1 / (1 + exp(-x))
 
 	# The derivative of the Sigmoid function.
-    # This is the gradient of the Sigmoid curve.
-    # It indicates how confident we are about the existing weight.
+        # This is the gradient of the Sigmoid curve.
+        # It indicates how confident we are about the existing weight.
 	def sigmoidDeriv(self, x):
 		return x * (1 - x)
 
 	# We train the neural network through a process of trial and error.
-    # Adjusting the synaptic weights each time.
+        # Adjusting the synaptic weights each time.
 	def trainNetwork(self, input_set, output_set, num_iterations):
 		for i in xrange(num_iterations):
 			# Passing the training set to our neural net consisting of perceptrons
